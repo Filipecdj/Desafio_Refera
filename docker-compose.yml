@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     volumes:
-      - ./data/ddl_transactional.sql:/docker-entrypoint-initdb.d/ddl_transactional.sql
+      - ./data/Create_tables_transactional.sql:/docker-entrypoint-initdb.d/Create_tables_transactional.sql
     ports:
       - 5440:5432
 
