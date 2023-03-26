@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  transactional:
+    container_name: transactional
+    image: postgres:12
+    environment:
+      POSTGRES_DB: dvdrental
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./data/dvdrental.sql:/docker-entrypoint-initdb.d/dvdrental.sql
+    ports:
+      - 5432:5432
+
+  analytics:
+    container_name: analytics
+    image: postgres:12
+    environment:
+      POSTGRES_DB: analytics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./data/ddl_transactional.sql:/docker-entrypoint-initdb.d/ddl_transactional.sql
+    ports:
+      - 5440:5432
+
+  script_etl:
+   image: python:3.10
+   volumes:
+     - ./script_python:/app                                                                                     
+   command: 
+       sh -c "pip install pandas && pip install SQLAlchemy==1.4.46 && pip install psycopg2 && python3 -u /app/etl_refera.py"     
+   depends_on:
+     - transactional                  
+     - analytics
+ 
+volumes:
+    postgres:
