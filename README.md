@@ -1,55 +1,16 @@
-# Seja bem vindo ao desafio de engenharia de dados da Refera!
-
-⚠️⚠️ Não faça fork deste repositório!
-
-
-O objetivo desse desafio é ser algo rápido para exemplificar alguns desafios do dia a dia de quem trabalha com dados. Queremos com esse desafio avaliar o seu conhecimento básico em programação, banco de dados e entender mais quais as boas práticas você segue para construção de código.
-
-
-## O desafio
-
-Pensando em não sobrecarregar nosso banco de dados transacional, precisamos ter um ambiente separado para analisar nossos dados sem grandes problemas. Assim, escreva um código local que faça uma extração total de todas as tabelas do banco de dados `transactional` e as carregue para o banco de dados `analytics`.
-
-O arquivo [docker-compose.yml](docker-compose.yml) ativa containers com os bancos de dados `transactional` e `analytics`.
+# Desafio de engenharia de dados da Refera!
+O objetivo do desafio na minha visão, foi concluído com sucesso, utilizando um script `Python` e suas respectivas bilbiotecas `Pandas` e `SQLAlchemy`, foram suficientes para realizar a cópia e a carga de dados para o bd de destino `analytics`.
 
 ![Infra dos banco de dados](fluxo.png)
 
-Diferenciais na implementação:
-- script rodando dentro do docker
+# Dificuldades
+O desafio proposto, de certa forma, não apresenta um nível de complexidade grande, mas, como todo desafio existem impasses durante seu desenvolvimento. Meu principal empecilho do desafio foi, desenvolver um script em python que fornecesse o o `CREATE TABLE` das tabelas do bd `transactional`, ao longo de muitas pesquisas encontrei prováveis soluções para o tal objetivo. Analisando as possíveis soluções, decidi optar por utilizar um sript `.SQL` que cria as tabelas no bd `analytics`.
 
-## Configuração do Ambiente
+# Instruções de como executar o projeto
+- Clonar o repositório `https://github.com/Filipecdj/Desafio_Refera.git`
+- Executar o docker-compose 
 
-Os banco de dados podem ser configurados usando o docker compose. Você pode instalá-lo seguindo as instruções em https://docs.docker.com/compose/install/.
+Após isso, os dados serão ingeridos no bd `analytics`.
 
-Clone o repositório:
-
-
-```bash
-git clone https://github.com/Refera-Tech/refera-data-engineer-short-challenge
-```
-
-Com o docker compose instalado, basta executar:
-
-```bash
-cd refera-data-engineer-short-challenge
-docker-compose up
-```
-
-## Entrega
-
-Subir os códigos em um repositório seu público no Github e enviar por email.
-
-⚠️⚠️ Não faça fork deste repositório!
-
-## Observações
-
-- Escolha a linguagem de programação que quiser, mas evite ambientes complexos.
-- Use bibliotecas de código aberto e escreva seu próprio código.
-- É importante lembrar que precisaremos executar seu código.
-
-## Links Úteis
-
-- [Transactional vs. Analytical Workloads](https://www.youtube.com/watch?v=ivSPZB6zUKY)
-- [Docker Docs](https://docs.docker.com/)
-- [Docker em 22 minutos - teoria e prática](https://www.youtube.com/watch?v=Kzcz-EVKBEQ)
-- [Docker Compose na prática](https://www.youtube.com/watch?v=HxPz3eLnXZk)
+# Comentário
+Gostaria de agradecer a oportunidade para a resolução do desafio proposto, obrigado :D
