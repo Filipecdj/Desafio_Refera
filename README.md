@@ -16,5 +16,5 @@ Após isso, os dados serão ingeridos no bd `analytics`.
 # Comentário
 Gostaria de agradecer a oportunidade para a resolução do desafio proposto, obrigado :D
 
-Filipe Carvalho de Jesus
-filipe.cdj@gmail.com
+- Filipe Carvalho de Jesus
+- filipe.cdj@gmail.com
